@@ -5,7 +5,46 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#050b08" />
   <title>Arive Homes | Weekly Owner Report</title>
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+:root{
+  --arive:#78be20;
+  --arive-dark:#050b08;
+  --panel-dark:#0f1b13;
+  --panel-dark-2:#101b14;
+  --ink:#0d1510;
+  --text:#263329;
+  --muted:#68766b;
+  --line:#d8e0d8;
+  --line-2:#e8ede8;
+  --page:#eef2ed;
+  --soft:#f7f9f6;
+  --soft-green:#edf5e9;
+  --good:#5c9f16;
+  --good-bg:#edf6e9;
+  --bad:#d54137;
+  --bad-bg:#fde9e6;
+  --mf:#d5c7a4;
+}
+*{box-sizing:border-box}
+html{background:var(--page)}
+body{margin:0;background:var(--page);color:var(--text);font-family:"Segoe UI",Arial,sans-serif}
+.page-shell{width:min(1560px,calc(100% - 32px));margin:18px auto 26px;background:#f8faf7;border:1px solid #d4dcd4;box-shadow:0 10px 30px rgba(5,11,8,.08)}
+.hero{height:100px;background:var(--arive-dark);border-bottom:4px solid var(--arive);display:flex;align-items:center;justify-content:space-between;padding:18px 24px 16px;color:#fff}
+.brand-area{display:flex;align-items:center;min-width:0}.brand-logo{width:240px;height:auto;display:block}.hero-divider{width:1px;height:56px;background:#48634f;margin:0 30px}.hero-title-wrap h1{margin:0;font-size:31px;line-height:1;font-weight:800;letter-spacing:.015em}.hero-title-wrap p{margin:8px 0 0;color:#d3ddd4;font-size:16px}.hero-meta{text-align:right;display:flex;flex-direction:column;gap:4px;min-width:250px}.hero-meta span{color:var(--arive);font-size:11px;font-weight:900;letter-spacing:.08em}.hero-meta strong{font-size:14px}.hero-meta small{font-size:12px;color:#b8c4ba}
+main{padding:20px 22px 16px}
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:14px}.kpi{position:relative;background:#fff;border:1px solid #d8e0d8;border-radius:13px;padding:14px 17px 14px 20px;min-height:112px;box-shadow:0 1px 0 rgba(5,11,8,.03)}.kpi:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--arive);border-radius:13px 0 0 13px}.kpi-label{font-size:12px;font-weight:750;color:#607065;text-transform:uppercase;letter-spacing:.02em}.kpi-value{font-size:40px;font-weight:800;color:#050b08;line-height:1;margin:8px 0 6px;letter-spacing:-.03em}.kpi-detail{font-size:12px;color:#68766b;line-height:1.35}.kpi.goal .kpi-value{font-size:35px}.kpi.goal .kpi-detail{font-size:11px}
+.dashboard-grid{display:grid;grid-template-columns:1.08fr .92fr .52fr;grid-template-areas:"closings build pipeline" "digs snapshot pipeline";gap:14px;align-items:stretch}.closings-panel{grid-area:closings}.build-panel{grid-area:build}.pipeline-panel{grid-area:pipeline}.digs-panel{grid-area:digs}.snapshot-panel{grid-area:snapshot}.panel{background:#fff;border:1px solid #d3dcd3;border-radius:13px;overflow:hidden;box-shadow:0 1px 0 rgba(5,11,8,.02)}.panel-bar{height:39px;background:var(--panel-dark);color:white;display:flex;align-items:center;justify-content:space-between;padding:0 14px}.panel-bar h2{margin:0;font-size:16px;font-weight:750;letter-spacing:.01em}.panel-bar span{font-size:10px;color:#c7d4c9;white-space:nowrap}.panel-body{padding:9px 14px 12px}
+.data-table,.metric-table{width:100%;border-collapse:collapse}.data-table th,.metric-table th{text-align:left;font-size:10px;color:#6e7a70;font-weight:750;padding:7px 0;border-bottom:1px solid #d5ddd5}.data-table td{padding:10px 0;border-bottom:1px solid #e6ebe6;font-size:13px;color:#283229}.data-table tbody tr:last-child td{border-bottom:0}.data-table td:first-child{font-weight:650;color:#101710}.roomy th:nth-child(1){width:12%}.roomy th:nth-child(2){width:34%}.roomy th:nth-child(3){width:27%}.roomy th:nth-child(4){width:15%}.roomy th:nth-child(5){width:12%}.roomy td:nth-child(4),.roomy td:nth-child(5){white-space:nowrap}.table-total{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:9px;border-top:1px solid #e5ebe5;color:#6c786e;font-size:11px}.table-total strong{font-size:14px;color:#111a13}
+.build-body{display:grid;grid-template-columns:1fr 1fr;gap:22px}.build-col h3{font-size:13px;color:#111a13;margin:3px 0 6px;font-weight:800}.metric-table th{padding:6px 4px}.metric-table th:not(:first-child),.metric-table td:not(:first-child){text-align:right}.metric-table td{font-size:12px;padding:8px 4px;border-bottom:1px solid #e6ebe6}.metric-table tr.total td{font-weight:800;background:#eef4e9;border-bottom:0}.metric-table tr.total.bad-total td{background:#fae8e5}.delta-good{color:var(--good);font-weight:750}.delta-bad{color:var(--bad);font-weight:750}
+.pipeline-body{height:calc(100% - 0px);display:flex;flex-direction:column}.pipeline-table th{padding-top:5px}.pipeline-table td{font-size:11px;padding:8px 0}.type-badge{display:inline-flex;min-width:28px;height:22px;border-radius:11px;align-items:center;justify-content:center;font-size:9px;font-weight:800}.type-badge.sf{background:var(--arive);color:#0b1705}.type-badge.mf{background:var(--mf);color:#4c432b}.mix-row{margin-top:auto;padding-top:14px;display:grid;grid-template-columns:72px 1fr;align-items:center;gap:8px;font-size:10px;color:#6b776e}.mix-bar{height:16px;border-radius:8px;overflow:hidden;background:#e9ede9;display:flex}.mix-sf{background:var(--arive)}.mix-mf{background:var(--mf)}
+.digs-table th:nth-child(1){width:24%}.digs-table th:nth-child(2){width:10%;text-align:center}.digs-table td:nth-child(2){text-align:center;font-weight:750}.digs-table td{padding:10px 0}.dig-stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}.mini-stat{background:#eef4e9;border-radius:10px;min-height:57px;padding:8px 9px;display:flex;align-items:center;gap:9px}.mini-stat strong{font-size:25px;line-height:1;color:#101710}.mini-stat span{font-size:9px;color:#647166;line-height:1.2}
+.snapshot-body{display:flex;flex-direction:column;gap:8px}.snap{display:grid;grid-template-columns:135px 1fr;gap:12px;align-items:center;background:#f8faf7;border:1px solid #dbe3db;border-left:5px solid var(--arive);border-radius:9px;padding:8px 12px}.snap.alert{border-left-color:var(--bad)}.snap .label{font-size:9px;color:#68746a;text-transform:uppercase}.snap strong{display:block;font-size:23px;line-height:1.05;color:#0d1510;margin-top:2px}.snap p{margin:0;font-size:11px;color:#6c776e}.data-check{margin-top:4px;background:#fff4dd;border-radius:9px;padding:9px 12px;font-size:10px;color:#725a27}.data-check strong{margin-right:12px;color:#9b741c}
+footer{margin:0 22px;padding:11px 0 13px;border-top:1px solid #bfc9bf;display:flex;justify-content:space-between;align-items:center;color:#69756b;font-size:9px}.footer-brand{font-weight:800;color:#1b261d;letter-spacing:.08em}
+@media(max-width:1200px){.page-shell{width:100%;margin:0;border:0}.hero-meta{display:none}.kpi-row{grid-template-columns:repeat(3,1fr)}.dashboard-grid{grid-template-columns:1fr 1fr;grid-template-areas:"closings build" "digs snapshot" "pipeline pipeline"}.pipeline-body{height:auto}.pipeline-table td{font-size:12px}}
+@media(max-width:780px){.hero{height:auto;padding:18px}.brand-logo{width:180px}.hero-divider{margin:0 18px;height:46px}.hero-title-wrap h1{font-size:22px}.hero-title-wrap p{font-size:13px}.kpi-row{grid-template-columns:1fr 1fr}.dashboard-grid{display:block}.panel{margin-bottom:12px}.build-body{grid-template-columns:1fr}.kpi-value{font-size:34px}.dig-stat-row{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){main{padding:12px}.hero-divider{display:none}.hero-title-wrap{display:none}.brand-logo{width:210px}.kpi-row{grid-template-columns:1fr}.roomy th:nth-child(2),.roomy td:nth-child(2){display:none}.snap{grid-template-columns:105px 1fr}.pipeline-table td,.pipeline-table th{font-size:10px}}
+
+</style>
 </head>
 <body>
 <div class="page-shell">
@@ -112,7 +151,98 @@
     <span class="footer-brand">ARIVE HOMES</span>
   </footer>
 </div>
-<script src="data.js"></script>
-<script src="app.js"></script>
+<script>
+window.ARIVE_REPORT_DATA = {
+  weekEnding: "Sunday, September 27, 2026",
+  goals: { sf: 100, mf: 40 },
+  kpis: {
+    closingsLastWeek: { value: 3, detail: "3 Single-Family  •  0 Multifamily" },
+    closingsYTD: { value: 75, detail: "53 Single-Family  •  22 Multifamily" },
+    scheduledDigsYTD: { value: 79, detail: "77 actual dates entered  •  2 pending" },
+    estClosingsNext30: { value: 10, detail: "8 Single-Family  •  2 Multifamily" }
+  },
+  closingsLastWeek: [
+    { lot:"CV 335", community:"Canyon View Meadows", super:"Deryck-Burke", close:"9/25", build:152 },
+    { lot:"ST WH 01", community:"ST Whiting Homestead", super:"Deryck", close:"9/25", build:170 },
+    { lot:"MD 16", community:"Makin Dreams", super:"Robbie/Jackson", close:"9/25", build:175 }
+  ],
+  buildTime: {
+    sf:[
+      {name:"Dig → 4-Way",actual:63,goal:63},
+      {name:"4-Way → Cab",actual:46,goal:48},
+      {name:"Cab → C/O",actual:38,goal:39},
+      {name:"TOTAL BUILD",actual:146,goal:150,total:true}
+    ],
+    mf:[
+      {name:"Dig → 4-Way",actual:116,goal:100},
+      {name:"4-Way → Cab",actual:60,goal:60},
+      {name:"Cab → C/O",actual:38,goal:45},
+      {name:"TOTAL BUILD",actual:214,goal:205,total:true}
+    ]
+  },
+  pipeline:[
+    {date:"9/30",lot:"VT 01",type:"MF",super:"Deryck"},
+    {date:"9/30",lot:"ST WH 04",type:"SF",super:"Deryck"},
+    {date:"10/1",lot:"GP 54",type:"SF",super:"Greg"},
+    {date:"10/2",lot:"OS 80",type:"SF",super:"Greg"},
+    {date:"10/6",lot:"S5 17",type:"SF",super:"Greg"},
+    {date:"10/7",lot:"MC 01",type:"SF",super:"Deryck"},
+    {date:"10/15",lot:"OU 63",type:"SF",super:"Burke"},
+    {date:"10/26",lot:"VT 05",type:"MF",super:"Deryck"},
+    {date:"10/27",lot:"BH 05",type:"SF",super:"Greg"},
+    {date:"10/27",lot:"ST 10",type:"SF",super:"Burke"}
+  ],
+  digs:[
+    {week:"9/28–10/2",count:2,lots:"LR 15-ARC  •  GP 10 SPEC"},
+    {week:"10/5–10/9",count:2,lots:"ST EH 11  •  ST 08"},
+    {week:"10/12–10/16",count:2,lots:"LR 14-ARC  •  GP 57"},
+    {week:"10/19–10/23",count:2,lots:"CV 331  •  ST EH 12"},
+    {week:"10/26–10/30",count:2,lots:"GP 53  •  GP 43"}
+  ],
+  digStats:[
+    {value:79,label:"Scheduled digs YTD"},
+    {value:77,label:"Actual dig dates entered"},
+    {value:1,label:"Actual dig last week"},
+    {value:10,label:"Scheduled next 5 weeks"}
+  ],
+  snapshot:[
+    {label:"SF Build Time",value:"146 days",detail:"4 days ahead of 150-day goal",state:"good"},
+    {label:"MF Build Time",value:"214 days",detail:"9 days over 205-day goal",state:"alert"},
+    {label:"Last Week",value:"3 closings",detail:"all verified actual close dates",state:"good"},
+    {label:"Next 30 Days",value:"10 closings",detail:"8 SF  •  2 MF forecasted",state:"good"}
+  ],
+  dataCheck:"2 malformed Actual Close Date values are included in YTD closing count but excluded from date-based weekly/monthly timing."
+};
+
+</script>
+<script>
+(() => {
+  const d=window.ARIVE_REPORT_DATA;
+  const $=id=>document.getElementById(id);
+  const esc=v=>String(v??"").replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  $('weekEnding').textContent=d.weekEnding;
+  const kpis=[
+    ['CLOSINGS LAST WEEK',d.kpis.closingsLastWeek],
+    ['VERIFIED CLOSINGS YTD',d.kpis.closingsYTD],
+    ['SCHEDULED DIGS YTD',d.kpis.scheduledDigsYTD],
+    ['EST. CLOSINGS — NEXT 30 DAYS',d.kpis.estClosingsNext30]
+  ];
+  $('kpiRow').innerHTML=kpis.map(([l,k])=>`<div class="kpi"><div class="kpi-label">${l}</div><div class="kpi-value">${k.value}</div><div class="kpi-detail">${k.detail}</div></div>`).join('')+
+    `<div class="kpi goal"><div class="kpi-label">2026 C/O GOALS</div><div class="kpi-value">${d.goals.sf} / ${d.goals.mf}</div><div class="kpi-detail">Single-Family / Multifamily</div></div>`;
+  $('closingsVerified').textContent=`${d.closingsLastWeek.length} verified`;
+  $('closingTotal').textContent=`${d.closingsLastWeek.length} CLOSINGS`;
+  $('closingsBody').innerHTML=d.closingsLastWeek.map(r=>`<tr><td>${esc(r.lot)}</td><td>${esc(r.community)}</td><td>${esc(r.super)}</td><td>${esc(r.close)}</td><td>${esc(r.build)}</td></tr>`).join('');
+  function metricRows(rows){return rows.map(r=>{const v=r.actual-r.goal; const cls=v<0?'delta-good':v>0?'delta-bad':''; const tr=r.total?`total ${v>0?'bad-total':''}`:''; return `<tr class="${tr}"><td>${r.name}</td><td>${r.actual}</td><td>${r.goal}</td><td class="${cls}">${v>0?'+':''}${v}</td></tr>`}).join('')}
+  $('sfBuildBody').innerHTML=metricRows(d.buildTime.sf); $('mfBuildBody').innerHTML=metricRows(d.buildTime.mf);
+  $('pipelineCount').textContent=`${d.pipeline.length} forecasted`;
+  $('pipelineBody').innerHTML=d.pipeline.map(r=>`<tr><td>${r.date}</td><td>${r.lot}</td><td><span class="type-badge ${r.type==='SF'?'sf':'mf'}">${r.type}</span></td><td>${r.super}</td></tr>`).join('');
+  const sf=d.pipeline.filter(x=>x.type==='SF').length,mf=d.pipeline.length-sf; $('mixSF').style.width=`${sf/d.pipeline.length*100}%`; $('mixMF').style.width=`${mf/d.pipeline.length*100}%`;
+  $('digsCount').textContent=`${d.digs.reduce((a,b)=>a+b.count,0)} scheduled`;
+  $('digScheduleBody').innerHTML=d.digs.map(r=>`<tr><td>${r.week}</td><td>${r.count}</td><td>${r.lots}</td></tr>`).join('');
+  $('digStats').innerHTML=d.digStats.map(s=>`<div class="mini-stat"><strong>${s.value}</strong><span>${s.label}</span></div>`).join('');
+  $('snapshotBody').innerHTML=d.snapshot.map(s=>`<div class="snap ${s.state==='alert'?'alert':''}"><div><div class="label">${s.label}</div><strong>${s.value}</strong></div><p>${s.detail}</p></div>`).join('')+`<div class="data-check"><strong>DATA CHECK</strong>${d.dataCheck}</div>`;
+})();
+
+</script>
 </body>
 </html>
