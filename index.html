@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#050b08" />
+  <title>Arive Homes | Weekly Owner Report</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <img src="assets/arive-logo.png" alt="Arive Homes" class="brand-logo" />
+        <div class="rule"></div>
+        <div>
+          <div class="eyebrow">ARIVE HOMES</div>
+          <h1 id="reportTitle">Weekly Owner Report</h1>
+          <div class="subline">Week Ending <span id="weekEnding"></span></div>
+        </div>
+      </div>
+      <div class="goals-box">
+        <span class="goals-label">2026 Goals</span>
+        <strong><span id="sfGoal"></span> SF C/Os</strong>
+        <strong><span id="mfGoal"></span> MF C/Os</strong>
+      </div>
+    </header>
+
+    <main>
+      <section class="kpi-grid" id="kpis"></section>
+
+      <section class="layout-main">
+        <article class="panel panel-large">
+          <div class="panel-head">
+            <div>
+              <span class="section-kicker">Actuals</span>
+              <h2>Closings Last Week</h2>
+            </div>
+            <span class="panel-note" id="closingCountNote"></span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Lot</th><th>Super</th><th>Close Date</th><th class="num">Build Days</th></tr></thead>
+              <tbody id="closingsBody"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel panel-side">
+          <div class="panel-head">
+            <div>
+              <span class="section-kicker">Forecast</span>
+              <h2>Closing Pipeline — Next 30 Days</h2>
+            </div>
+          </div>
+          <div class="table-wrap compact">
+            <table>
+              <thead><tr><th>Est. Close</th><th>Lot</th><th>Type</th><th>Super</th></tr></thead>
+              <tbody id="pipelineBody"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel build-panel">
+        <div class="panel-head">
+          <div>
+            <span class="section-kicker">Cycle Time</span>
+            <h2>Build-Time Performance</h2>
+          </div>
+          <span class="panel-note">Multifamily excludes AF one-off townhomes</span>
+        </div>
+        <div class="build-grid">
+          <div>
+            <h3>Single-Family <span>days</span></h3>
+            <table class="metric-table">
+              <thead><tr><th>Milestone</th><th class="num">Actual</th><th class="num">Goal</th><th class="num">Variance</th></tr></thead>
+              <tbody id="sfBuildBody"></tbody>
+            </table>
+          </div>
+          <div>
+            <h3>Multifamily <span>days</span></h3>
+            <table class="metric-table">
+              <thead><tr><th>Milestone</th><th class="num">Actual</th><th class="num">Goal</th><th class="num">Variance</th></tr></thead>
+              <tbody id="mfBuildBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="lower-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <div><span class="section-kicker">Starts</span><h2>New Digs — Next 5 Weeks</h2></div>
+          </div>
+          <div class="table-wrap compact">
+            <table>
+              <thead><tr><th>Week Of</th><th class="num">Planned Digs</th><th>Lots</th></tr></thead>
+              <tbody id="digScheduleBody"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel summary-panel">
+          <div class="panel-head">
+            <div><span class="section-kicker">2026</span><h2>Dig Summary</h2></div>
+          </div>
+          <div id="digSummary" class="summary-list"></div>
+        </article>
+
+        <article class="panel takeaways-panel">
+          <div class="panel-head">
+            <div><span class="section-kicker">Owner View</span><h2>Key Takeaways</h2></div>
+          </div>
+          <ul id="takeaways" class="takeaways"></ul>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span id="footnote"></span>
+      <img src="assets/arive-logo.png" alt="Arive Homes" />
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
